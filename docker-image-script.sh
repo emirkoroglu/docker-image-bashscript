@@ -14,4 +14,16 @@ read CONTAINERID
 
 docker exec -it "$CONTAINERID"  bash   2> /dev/null
 
+sleep 10
+
+echo Would you like to delete all images and containers? only yes will be accepted
+read yes
+if  [ $yes = "yes" ]
+then
+  docker rm -f `docker ps -qa` 
+  docker rmi -f $(docker images -aq)
+else
+  echo "Destroy cancelled"
+fi
+
 #emirsway copyright 2021
