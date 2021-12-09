@@ -3,7 +3,7 @@
 echo Please tell me the image.
 
 read IMAGE
-
+echo Please wait
 docker run -d --name task -P  $IMAGE  2> /dev/null
 
 docker ps 
